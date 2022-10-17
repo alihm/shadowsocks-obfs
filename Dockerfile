@@ -4,7 +4,7 @@
 
 FROM alpine:3.6
 
-ARG TZ='Asia/Shanghai'
+ARG TZ='Europe/Berlin'
 
 ENV TZ $TZ
 ENV SS_LIBEV_VERSION 3.1.0 
@@ -58,7 +58,6 @@ RUN apk upgrade --update \
 
 ENV SERVER_ADDR 0.0.0.0
 ENV SERVER_PORT 8388
-ENV PASSWORD    WomenLifeFreedom
 ENV METHOD      chacha20-ietf-poly1305
 ENV TIMEOUT     300
 ENV DNS_ADDR    8.8.8.8
@@ -68,7 +67,7 @@ ENV ARGS=
 EXPOSE $SERVER_PORT/tcp $SERVER_PORT/udp
 CMD ss-server -s $SERVER_ADDR \
               -p $SERVER_PORT \
-              -k ${PASSWORD:-$(hostname)} \
+              -k WomenLifeFreedom \
               -m $METHOD \
               -t $TIMEOUT \
               --fast-open \
