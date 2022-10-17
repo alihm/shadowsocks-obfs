@@ -63,11 +63,12 @@ ENV TIMEOUT     300
 ENV DNS_ADDR    8.8.8.8
 ENV DNS_ADDR_2  8.8.4.4
 ENV ARGS=
+ENV PASS=
 
 EXPOSE $SERVER_PORT/tcp $SERVER_PORT/udp
 CMD ss-server -s $SERVER_ADDR \
               -p $SERVER_PORT \
-              -k WomenLifeFreedom \
+              -k $PASS \
               -m $METHOD \
               -t $TIMEOUT \
               --fast-open \
